@@ -117,9 +117,12 @@ Vylepšete třídu `Pocitac` o metody:
 * `public void vytvorSouborOVelikosti(long velikost)`
 * `public void vymazSouboryOVelikosti(long velikost)`
 
-Metoda `vytvorSouborOVelikosti(long velikost)` zvýší proměnnou `vyuziteMisto` o `velikost`. Pokud by se už nově vytvářený soubor na disk nevešel
-(`vyuziteMisto > kapacita`), metoda vypíše chybu a `vyuziteMisto` se nebude měnit. Metoda `vymazSouboryOVelikosti(long velikost)` sníží proměnnou
-`vyuziteMisto` o `velikost`. `vyuziteMisto` nemůže klesnout pod `0`. Metody budou fungovat pouze, pokud je počítač zapnutý.
+Metoda `vytvorSouborOVelikosti(long velikost)` zvýší proměnnou `vyuziteMisto` o `velikost` (pozor, nebude měnit přímo proměnnou `vyuziteMisto`,
+ta je privátní, takže se k ní nedostane – použije na její změnu odpovídající setter). Setter `setVyuziteMisto` zkontroluje, zda se nepokoušíme
+využít více místa, než je kapacita disku (`vyuziteMisto > kapacita`). Pokud by se už nově vytvářený soubor na disk nevešel,
+setter vypíše chybu a `vyuziteMisto` se nebude měnit. Metoda `vymazSouboryOVelikosti(long velikost)` sníží proměnnou
+`vyuziteMisto` o `velikost`. Property `vyuziteMisto` nemůže klesnout pod `0`, což opět zajistí kontrola v setteru.
+Metody `vytvorSouborOVelikosti` a `vymazSouboryOVelikosti` budou fungovat pouze, pokud je počítač zapnutý.
 
 Demonstrujte v `main(...)`, že se metody chovají, jak mají.
 
