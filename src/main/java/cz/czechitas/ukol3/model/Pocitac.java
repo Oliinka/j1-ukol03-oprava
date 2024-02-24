@@ -8,7 +8,7 @@ public class Pocitac {
     public boolean disk = false;
 
     public void isJeZapnuty() {
-        if (jeZapnuty == true) {
+        if (jeZapnuty) {
             System.out.println("Pocitac je zapnuty.");
         } else {
             System.out.println("Pocitac je vypnuty...");
@@ -16,7 +16,7 @@ public class Pocitac {
     }
 
     public void vypniSe() {
-        if (jeZapnuty == true) {
+        if (jeZapnuty) {
             System.out.println("Pocitac se vypina...");
             jeZapnuty = false;
         } else {
@@ -51,19 +51,17 @@ public class Pocitac {
         }
     }
 
-    public void zapniSe(){
+    public void zapniSe() {
         zjistiExistenciDisku();
         zjistiExistenciPameti();
         zjistiExistenciProcesoru();
 
-        if (jeZapnuty){
+        if (jeZapnuty) {
             System.err.println("Pocitac je jiz zapnuty");
-        }
-        else if (disk&&pamet&&procesor){
-            jeZapnuty= true;
+        } else if (disk && pamet && procesor) {
+            jeZapnuty = true;
             System.out.println("Pocitac se zapnul.");
-        }
-        else {
+        } else {
             System.out.println("Pocitac nema potrebne komponenty.");
         }
     }
