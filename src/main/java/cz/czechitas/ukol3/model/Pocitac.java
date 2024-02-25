@@ -46,25 +46,23 @@ public class Pocitac {
     }
 
     public void zjistiExistenciProcesoru() {
-        if (cpu != null){
+        if (cpu != null) {
             procesor = true;
-        }
-        else {
+        } else {
             System.err.println("Pocitac nema procesor.");
         }
     }
 
     public void zjistiExistenciPameti() {
-        if (ram != null){
+        if (ram != null) {
             pamet = true;
-        }
-        else {
+        } else {
             System.out.println("Pocitac nema pamet.");
         }
     }
 
     public void zjistiExistenciDisku() {
-        if (pevnyDisk!= null){
+        if (pevnyDisk != null) {
             disk = true;
         } else {
             System.out.println("Pocitac nema hard disk.");
@@ -72,10 +70,16 @@ public class Pocitac {
     }
 
     public void zapniSe() {
-        if (cpu == null || ram == null || pevnyDisk == null) {
+        zjistiExistenciProcesoru();
+        zjistiExistenciPameti();
+        zjistiExistenciDisku();
+
+        if (!procesor || !pamet || !disk) {
             System.out.println("Pocitac nelze zapnout, nema potrebne komponenty.");
             return;
-        } else if (jeZapnuty) {
+        }
+
+        if (jeZapnuty) {
             System.out.println("Pocitac je jiz zapnuty");
         } else {
             System.out.println("Pocitac se zapnul.");

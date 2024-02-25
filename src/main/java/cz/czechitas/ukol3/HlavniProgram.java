@@ -14,14 +14,16 @@ public class HlavniProgram {
         //TODO tady bude váš kód - vytvoření instance třídy Pocitac, zapnutí, vpynutí, výpis hodnot.
         System.out.println("Program spuštěn.");
 
-        System.out.println("------------------------------------------------------");
-        Pocitac mujPocitac = new Pocitac();
 
-        System.out.println(mujPocitac.toString()); //pocitac vypise hodnoty s nulou nebo null, protoze nejsou jeste zadane
+        Pocitac mujPocitac = new Pocitac();
 
         System.out.println("------------------------------------------------------");
         mujPocitac.zapniSe(); //pocitac by  nemel jit zapnout ale vypisuje ze zapnout lze, proc?
         System.out.println("------------------------------------------------------");
+
+
+        System.out.println(mujPocitac.toString()); //pocitac vypise hodnoty s nulou nebo null, protoze nejsou jeste zadane
+
 
         Disk mujDisk = new Disk();
         mujDisk.setKapacita(994_662_584_320L);
@@ -35,6 +37,11 @@ public class HlavniProgram {
         mujProcesor.setRychlost(3_490_000_000L);
         mujProcesor.setVyrobce("Apple");
         mujPocitac.setCpu(mujProcesor);
+
+        System.out.println("------------------------------------------------------");
+        mujPocitac.zapniSe(); //pocitac by  nemel jit zapnout ale vypisuje ze zapnout lze, proc?
+        System.out.println("------------------------------------------------------");
+
 
         System.out.println(mujPocitac.toString());
 
