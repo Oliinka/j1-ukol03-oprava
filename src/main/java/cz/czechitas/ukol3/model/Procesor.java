@@ -21,7 +21,7 @@ public class Procesor {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Vyrobce procesoru je: " + vyrobce + "\n" +
                 "Rychlost procesoru je: " + rychlost + " Hz";
     }

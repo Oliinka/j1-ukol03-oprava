@@ -21,8 +21,8 @@ public class Disk {
     }
 
     @Override
-    public String toString(){
-      return "Kapacita pevneho disku je: " + kapacita + "\n" +
-              "Vyuzite misto je: " + vyuziteMisto + " bajtu";
+    public String toString() {
+        return "Kapacita pevneho disku je: " + kapacita + "\n" +
+                "Vyuzite misto je: " + vyuziteMisto + " bajtu";
     }
 }

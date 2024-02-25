@@ -41,7 +41,7 @@ public class Pocitac {
         if (jeZapnuty) {
             System.out.println("Pocitac je zapnuty.");
         } else {
-            System.out.println("Pocitac je vypnuty...");
+            System.err.println("Pocitac je vypnuty...");
         }
     }
 
@@ -50,19 +50,19 @@ public class Pocitac {
             System.out.println("Pocitac se vypina...");
             jeZapnuty = false;
         } else {
-            System.out.println("...");
+            System.err.println("...");
         }
     }
 
     public void zapniSe() {
 
         if (cpu == null || ram == null || pevnyDisk == null) {
-            System.out.println("Pocitac nelze zapnout, nema potrebne komponenty.");
+            System.err.println("Pocitac nelze zapnout, nema potrebne komponenty.");
             return;
         }
 
         if (jeZapnuty) {
-            System.out.println("Pocitac je jiz zapnuty");
+            System.err.println("Pocitac je jiz zapnuty");
         } else {
             System.out.println("Pocitac se zapnul.");
             jeZapnuty = true;
@@ -74,9 +74,9 @@ public class Pocitac {
         if ((velikostSouboru < vyuzitelneMisto) && (0 < velikostSouboru)) {
             pevnyDisk.setKapacita(pevnyDisk.getKapacita() - velikostSouboru);
             pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikostSouboru);
-            System.out.println("Soubor o velikosti " + velikostSouboru + " bajtu byl ulozeny na disk." + "Vyuzitelna kapacita disku je pouze " + pevnyDisk.getKapacita() + " bajtů.");
+            System.out.println("Soubor o velikosti " + velikostSouboru + " bajtu byl ulozeny na disk.\n" + "Vyuzitelna kapacita disku je pouze " + pevnyDisk.getKapacita() + " bajtů.");
         } else {
-            System.out.println("Soubor nelze ulozit. Byla prekrocena kapacita disku. Zbyvajici kapacita disku je pouze " + pevnyDisk.getKapacita() + " bajtů.");
+            System.out.println("Soubor nelze ulozit. Byla prekrocena kapacita disku.\n Zbyvajici kapacita disku je pouze " + pevnyDisk.getKapacita() + " bajtů.");
         }
     }
 
@@ -85,9 +85,9 @@ public class Pocitac {
         if (velikostSouboru <= pevnyDisk.getVyuziteMisto()) {
             pevnyDisk.setKapacita(pevnyDisk.getKapacita() + velikostSouboru);
             pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikostSouboru);
-            System.out.println("Soubor o velikosti " + velikostSouboru + " bajtu byl smazany z disku." + "Vyuztelna kapacita disku je " + pevnyDisk.getKapacita() + " bajtů.");
+            System.out.println("Soubor o velikosti " + velikostSouboru + " bajtu byl smazany z disku.\n" + "Vyuztelna kapacita disku je " + pevnyDisk.getKapacita() + " bajtů.");
         } else {
-            System.out.println("Soubor o velikosti " + velikostSouboru + " je vetsi, nez vyuzite misto disku. Vyuzitelna kapacita disku je " + pevnyDisk.getVyuziteMisto() + " bajtů.");
+            System.out.println("Soubor o velikosti " + velikostSouboru + " je vetsi, nez vyuzite misto disku.\n Vyuzitelna kapacita disku je " + pevnyDisk.getVyuziteMisto() + " bajtů.");
         }
     }
 

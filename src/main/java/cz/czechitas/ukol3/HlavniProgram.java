@@ -11,7 +11,7 @@ import cz.czechitas.ukol3.model.Procesor;
 public class HlavniProgram {
 
     public static void main(String... args) {
-        //TODO tady bude váš kód - vytvoření instance třídy Pocitac, zapnutí, vpynutí, výpis hodnot.
+
         System.out.println("Program spuštěn.");
 
 
@@ -46,29 +46,30 @@ public class HlavniProgram {
         System.out.println(mujPocitac.toString());
 
         mujPocitac.zapniSe();
-        mujPocitac.zapniSe();
+        System.out.println("------------------------------------------------------");
 
         mujPocitac.vytvorSouborOvelikosti(662_584_000L);
 
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
 
+        System.out.println("------------------------------------------------------");
 
         mujPocitac.vytvorSouborOvelikosti(4_000_000_000L);
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
 
-
+        System.out.println("------------------------------------------------------");
         mujPocitac.vytvorSouborOvelikosti(994_000_000_000L);
 
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
 
-
+        System.out.println("------------------------------------------------------");
         mujPocitac.vymazSouborOvelikosti(4_000_000_000L);
 
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
-
+        System.out.println("------------------------------------------------------");
         mujPocitac.vymazSouborOvelikosti(1_994_000_000_000L);
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
-
+        System.out.println("------------------------------------------------------");
         mujPocitac.vypniSe();
         mujPocitac.vypniSe();
 
