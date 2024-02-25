@@ -13,10 +13,10 @@ public class HlavniProgram {
         System.out.println("Program spuštěn.");
 
         Pocitac mujPocitac = new Pocitac();
-        mujPocitac.jeZapnuty= false;
+        mujPocitac.jeZapnuty = false;
         mujPocitac.isJeZapnuty();
 
-        mujPocitac.jeZapnuty= true;
+        mujPocitac.jeZapnuty = true;
         mujPocitac.isJeZapnuty();
 
         mujPocitac.vypniSe();
@@ -48,8 +48,6 @@ public class HlavniProgram {
 
         mujPocitac.vymazSouborOvelikosti(1_994_000_000_000L);
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
-
-
 
 
     }
