@@ -1,7 +1,9 @@
 package cz.czechitas.ukol3;
 
 import cz.czechitas.ukol3.model.Disk;
+import cz.czechitas.ukol3.model.Pamet;
 import cz.czechitas.ukol3.model.Pocitac;
+import cz.czechitas.ukol3.model.Procesor;
 
 /**
  * Spouštěcí třída celého programu
@@ -12,22 +14,33 @@ public class HlavniProgram {
         //TODO tady bude váš kód - vytvoření instance třídy Pocitac, zapnutí, vpynutí, výpis hodnot.
         System.out.println("Program spuštěn.");
 
+        System.out.println("------------------------------------------------------");
         Pocitac mujPocitac = new Pocitac();
-        mujPocitac.jeZapnuty = false;
-        mujPocitac.isJeZapnuty();
 
-        mujPocitac.jeZapnuty = true;
-        mujPocitac.isJeZapnuty();
+        System.out.println(mujPocitac.toString()); //pocitac vypise hodnoty s nulou nebo null, protoze nejsou jeste zadane
 
-        mujPocitac.vypniSe();
-        mujPocitac.vypniSe();
-
-        mujPocitac.zapniSe();
+        System.out.println("------------------------------------------------------");
+        mujPocitac.zapniSe(); //pocitac by  nemel jit zapnout ale vypisuje ze zapnout lze, proc?
+        System.out.println("------------------------------------------------------");
 
         Disk mujDisk = new Disk();
         mujDisk.setKapacita(994_662_584_320L);
-
         mujPocitac.setPevnyDisk(mujDisk);
+
+        Pamet mojePamet = new Pamet();
+        mojePamet.setKapacita(24_000_000_000L);
+        mujPocitac.setRam(mojePamet);
+
+        Procesor mujProcesor = new Procesor();
+        mujProcesor.setRychlost(3_490_000_000L);
+        mujProcesor.setVyrobce("Apple");
+        mujPocitac.setCpu(mujProcesor);
+
+        System.out.println(mujPocitac.toString());
+
+        mujPocitac.zapniSe(); //pocitac ma nastavene parametry jednotlivych komponentu a lze jej zapnout
+        mujPocitac.zapniSe(); //pocitac ohlasi ze je jiz zapnuty
+
         mujPocitac.vytvorSouborOvelikosti(662_584_000L);
 
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");

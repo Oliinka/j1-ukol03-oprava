@@ -7,13 +7,25 @@ public class Pocitac {
     public boolean pamet = false;
     public boolean disk = false;
     public Disk pevnyDisk;
+    public Procesor cpu;
+    public Pamet ram;
 
     public Pocitac() {
         this.pevnyDisk = new Disk();
+        this.cpu = new Procesor();
+        this.ram = new Pamet();
     }
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
+    }
+
+    public void setCpu(Procesor cpu) {
+        this.cpu = cpu;
+    }
+
+    public void setRam(Pamet ram) {
+        this.ram = ram;
     }
 
     public void isJeZapnuty() {
@@ -29,49 +41,45 @@ public class Pocitac {
             System.out.println("Pocitac se vypina...");
             jeZapnuty = false;
         } else {
-            System.err.println("...");
+            System.out.println("...");
         }
     }
 
     public void zjistiExistenciProcesoru() {
-        try {
-            Class.forName("cz.czechitas.ukol3.model.Procesor");
+        if (cpu != null){
             procesor = true;
-        } catch (ClassNotFoundException exception) {
+        }
+        else {
             System.err.println("Pocitac nema procesor.");
         }
     }
 
     public void zjistiExistenciPameti() {
-        try {
-            Class.forName("cz.czechitas.ukol3.model.Pamet");
+        if (ram != null){
             pamet = true;
-        } catch (ClassNotFoundException exception) {
-            System.err.println("Pocitac nema pamet.");
+        }
+        else {
+            System.out.println("Pocitac nema pamet.");
         }
     }
 
     public void zjistiExistenciDisku() {
-        try {
-            Class.forName("cz.czechitas.ukol3.model.Disk");
+        if (pevnyDisk!= null){
             disk = true;
-        } catch (ClassNotFoundException exception) {
-            System.err.println("Pocitac nema hard disk.");
+        } else {
+            System.out.println("Pocitac nema hard disk.");
         }
     }
 
     public void zapniSe() {
-        zjistiExistenciDisku();
-        zjistiExistenciPameti();
-        zjistiExistenciProcesoru();
-
-        if (jeZapnuty) {
-            System.err.println("Pocitac je jiz zapnuty");
-        } else if (disk && pamet && procesor) {
-            jeZapnuty = true;
-            System.out.println("Pocitac se zapnul.");
+        if (cpu == null || ram == null || pevnyDisk == null) {
+            System.out.println("Pocitac nelze zapnout, nema potrebne komponenty.");
+            return;
+        } else if (jeZapnuty) {
+            System.out.println("Pocitac je jiz zapnuty");
         } else {
-            System.err.println("Pocitac nema potrebne komponenty.");
+            System.out.println("Pocitac se zapnul.");
+            jeZapnuty = true;
         }
     }
 
@@ -95,6 +103,15 @@ public class Pocitac {
         } else {
             System.out.println("Soubor o velikosti " + velikostSouboru + " je vetsi, nez vyuzite misto disku. Vyuzitelna kapacita disku je " + pevnyDisk.getVyuziteMisto() + " bajtů.");
         }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Informace o pocitaci:\n" +
+                "Informace o procesoru:\n" + cpu.toString() + "\n" +
+                "Informace o pameti RAM:\n" + ram.toString() + "\n" +
+                "Informace o hard disku:\n" + pevnyDisk.toString();
     }
 
 }

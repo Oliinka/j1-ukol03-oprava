@@ -19,4 +19,10 @@ public class Disk {
     public void setVyuziteMisto(long vyuziteMisto) {
         this.vyuziteMisto = vyuziteMisto;
     }
+
+    @Override
+    public String toString(){
+      return "Kapacita pevneho disku je: " + kapacita + "\n" +
+              "Vyuzite misto je: " + vyuziteMisto + " bajtu";
+    }
 }
