@@ -1,5 +1,6 @@
 package cz.czechitas.ukol3;
 
+import cz.czechitas.ukol3.model.Disk;
 import cz.czechitas.ukol3.model.Pocitac;
 
 /**
@@ -22,6 +23,34 @@ public class HlavniProgram {
         mujPocitac.vypniSe();
 
         mujPocitac.zapniSe();
+
+        Disk mujDisk = new Disk();
+        mujDisk.setKapacita(994_662_584_320L);
+
+        mujPocitac.setPevnyDisk(mujDisk);
+        mujPocitac.vytvorSouborOvelikosti(662_584_000L);
+
+        System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
+
+
+        mujPocitac.vytvorSouborOvelikosti(4_000_000_000L);
+        System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
+
+
+        mujPocitac.vytvorSouborOvelikosti(994_000_000_000L);
+
+        System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
+
+
+        mujPocitac.vymazSouborOvelikosti(4_000_000_000L);
+
+        System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
+
+        mujPocitac.vymazSouborOvelikosti(1_994_000_000_000L);
+        System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
+
+
+
 
     }
 
