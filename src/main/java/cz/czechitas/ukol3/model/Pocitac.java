@@ -2,26 +2,35 @@ package cz.czechitas.ukol3.model;
 
 public class Pocitac {
 
-    public boolean jeZapnuty = false;
-    public boolean procesor = false;
-    public boolean pamet = false;
-    public boolean disk = false;
-    public Disk pevnyDisk;
-    public Procesor cpu;
-    public Pamet ram;
+    private boolean jeZapnuty;
+
+    private Disk pevnyDisk;
+    private Procesor cpu;
+    private Pamet ram;
 
     public Pocitac() {
-        this.pevnyDisk = new Disk();
-        this.cpu = new Procesor();
-        this.ram = new Pamet();
+        this.jeZapnuty = false;
+
+    }
+
+    public Disk getPevnyDisk() {
+        return pevnyDisk;
     }
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
     }
 
+    public Procesor getCpu() {
+        return cpu;
+    }
+
     public void setCpu(Procesor cpu) {
         this.cpu = cpu;
+    }
+
+    public Pamet getRam() {
+        return ram;
     }
 
     public void setRam(Pamet ram) {
@@ -45,36 +54,9 @@ public class Pocitac {
         }
     }
 
-    public void zjistiExistenciProcesoru() {
-        if (cpu != null) {
-            procesor = true;
-        } else {
-            System.err.println("Pocitac nema procesor.");
-        }
-    }
-
-    public void zjistiExistenciPameti() {
-        if (ram != null) {
-            pamet = true;
-        } else {
-            System.out.println("Pocitac nema pamet.");
-        }
-    }
-
-    public void zjistiExistenciDisku() {
-        if (pevnyDisk != null) {
-            disk = true;
-        } else {
-            System.out.println("Pocitac nema hard disk.");
-        }
-    }
-
     public void zapniSe() {
-        zjistiExistenciProcesoru();
-        zjistiExistenciPameti();
-        zjistiExistenciDisku();
 
-        if (!procesor || !pamet || !disk) {
+        if (cpu == null || ram == null || pevnyDisk == null) {
             System.out.println("Pocitac nelze zapnout, nema potrebne komponenty.");
             return;
         }
@@ -112,10 +94,30 @@ public class Pocitac {
 
     @Override
     public String toString() {
-        return "Informace o pocitaci:\n" +
-                "Informace o procesoru:\n" + cpu.toString() + "\n" +
-                "Informace o pameti RAM:\n" + ram.toString() + "\n" +
-                "Informace o hard disku:\n" + pevnyDisk.toString();
+        String result = "Informace o pocitaci:\n";
+
+        // Informace o procesoru
+        if (cpu != null) {
+            result += "Informace o procesoru:\n" + cpu.toString() + "\n";
+        } else {
+            result += "Procesor není nastaven.\n";
+        }
+
+        // Informace o paměti RAM
+        if (ram != null) {
+            result += "Informace o pameti RAM:\n" + ram.toString() + "\n";
+        } else {
+            result += "RAM není nastavena.\n";
+        }
+
+        // Informace o pevném disku
+        if (pevnyDisk != null) {
+            result += "Informace o hard disku:\n" + pevnyDisk.toString();
+        } else {
+            result += "Pevný disk není nastaven.";
+        }
+
+        return result;
     }
 
 }

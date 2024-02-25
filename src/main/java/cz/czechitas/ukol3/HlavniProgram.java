@@ -18,11 +18,11 @@ public class HlavniProgram {
         Pocitac mujPocitac = new Pocitac();
 
         System.out.println("------------------------------------------------------");
-        mujPocitac.zapniSe(); //pocitac by  nemel jit zapnout ale vypisuje ze zapnout lze, proc?
+        mujPocitac.zapniSe();
         System.out.println("------------------------------------------------------");
 
 
-        System.out.println(mujPocitac.toString()); //pocitac vypise hodnoty s nulou nebo null, protoze nejsou jeste zadane
+        System.out.println(mujPocitac.toString());
 
 
         Disk mujDisk = new Disk();
@@ -39,14 +39,14 @@ public class HlavniProgram {
         mujPocitac.setCpu(mujProcesor);
 
         System.out.println("------------------------------------------------------");
-        mujPocitac.zapniSe(); //pocitac by  nemel jit zapnout ale vypisuje ze zapnout lze, proc?
+        mujPocitac.zapniSe();
         System.out.println("------------------------------------------------------");
 
 
         System.out.println(mujPocitac.toString());
 
-        mujPocitac.zapniSe(); //pocitac ma nastavene parametry jednotlivych komponentu a lze jej zapnout
-        mujPocitac.zapniSe(); //pocitac ohlasi ze je jiz zapnuty
+        mujPocitac.zapniSe();
+        mujPocitac.zapniSe();
 
         mujPocitac.vytvorSouborOvelikosti(662_584_000L);
 
@@ -68,6 +68,9 @@ public class HlavniProgram {
 
         mujPocitac.vymazSouborOvelikosti(1_994_000_000_000L);
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
+
+        mujPocitac.vypniSe();
+        mujPocitac.vypniSe();
 
 
     }
