@@ -14,8 +14,8 @@ public class HlavniProgram {
 
         System.out.println("Program spuštěn.");
 
-
         Pocitac mujPocitac = new Pocitac();
+        System.out.println("Info o hodnote jeZapnuty() " + mujPocitac.jeZapnuty());
 
         System.out.println("------------------------------------------------------");
         mujPocitac.zapniSe();
@@ -23,7 +23,6 @@ public class HlavniProgram {
 
 
         System.out.println(mujPocitac.toString());
-
 
         Disk mujDisk = new Disk();
         mujDisk.setKapacita(994_662_584_320L);
@@ -72,8 +71,6 @@ public class HlavniProgram {
         System.out.println("------------------------------------------------------");
         mujPocitac.vypniSe();
         mujPocitac.vypniSe();
-
-
     }
 
 }
