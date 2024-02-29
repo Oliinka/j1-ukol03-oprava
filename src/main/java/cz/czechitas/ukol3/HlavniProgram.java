@@ -15,7 +15,7 @@ public class HlavniProgram {
         System.out.println("Program spuštěn.");
 
         Pocitac mujPocitac = new Pocitac();
-        System.out.println("Info o hodnote jeZapnuty() " + mujPocitac.jeZapnuty());
+        System.out.println("Info o hodnote jeZapnuty() " + mujPocitac.isJeZapnuty());
 
         System.out.println("------------------------------------------------------");
         mujPocitac.zapniSe();
@@ -70,7 +70,10 @@ public class HlavniProgram {
         System.out.println("KONTROLA --> Aktualni vyuzite misto je: " + mujDisk.getVyuziteMisto() + "bajtu.");
         System.out.println("------------------------------------------------------");
         mujPocitac.vypniSe();
-        mujPocitac.vypniSe();
+
+        mujPocitac.vymazSouborOvelikosti(100L);
+        mujPocitac.vytvorSouborOvelikosti(200L);
+
     }
 
 }
